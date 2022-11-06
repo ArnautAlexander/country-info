@@ -13,25 +13,23 @@ function CountriesList() {
         })
     }, [])
 
-    return (
-        <Wrap>
-            <WrapItem>
-                <CountriesListItem />
-            </WrapItem>
-            <WrapItem>
-                <CountriesListItem />
-            </WrapItem>
-            <WrapItem>
-                <CountriesListItem />
-            </WrapItem>
-            <WrapItem>
-                <CountriesListItem />
-            </WrapItem>
-            <WrapItem>
-                <CountriesListItem />
-            </WrapItem>
-        </Wrap>
-    )
+    if(!cList){
+        return(
+            <div>
+                loading
+            </div>
+        )
+    }else{
+        return(
+            <Wrap>
+                { cList.map(item => (
+                     <WrapItem>
+                        <CountriesListItem name={item.name.official} region={item.region} subregion={item.subregion} flags={item.flags.svg}/>
+                    </WrapItem>   
+                ))}
+            </Wrap>
+        )    
+    }
 }
 
 export default CountriesList

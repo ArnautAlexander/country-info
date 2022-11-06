@@ -12,7 +12,7 @@ import {
   const IMAGE =
     'https://flagcdn.com/bb.svg'
 
-function CountriesListItem() {
+function CountriesListItem(props) {
   return (
     <Center py={12}>
         <Box
@@ -40,23 +40,23 @@ function CountriesListItem() {
               height={230}
               width={282}
               objectFit={'cover'}
-              src={IMAGE}
+              src={props.flags}
             />
           </Box>
           <Stack pt={10} align={'center'}>
             <Stack direction={'row'} align={'center'}>
                 <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    North America
+                    {props.region}
                 </Text>
                 <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
                     •
                 </Text>
                 <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    Caribbean
+                    {props.subregion}
                 </Text>
             </Stack>
             <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
-              Barbados
+              {props.name}
             </Heading>
           </Stack>
         </Box>
