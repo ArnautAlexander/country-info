@@ -8,9 +8,6 @@ import {
     Stack,
     Image,
   } from '@chakra-ui/react';
-  
-  const IMAGE =
-    'https://flagcdn.com/bb.svg'
 
 function CountriesListItem(props) {
   return (
@@ -30,6 +27,7 @@ function CountriesListItem(props) {
             mt={-12}
             pos={'relative'}
             height={'230px'}
+            backgroundColor={'gray.100'}
             _groupHover={{
               _after: {
                 filter: 'blur(20px)',
@@ -39,7 +37,7 @@ function CountriesListItem(props) {
               rounded={'lg'}
               height={230}
               width={282}
-              objectFit={'cover'}
+              objectFit={'fill'}
               src={props.flags}
             />
           </Box>
@@ -55,7 +53,7 @@ function CountriesListItem(props) {
                     {props.subregion}
                 </Text>
             </Stack>
-            <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500}>
+            <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500} textAlign={'center'}>
               {props.name}
             </Heading>
           </Stack>

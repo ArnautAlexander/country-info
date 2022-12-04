@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import CountriesListItem from './CountriesListItem'
-import { Wrap, WrapItem } from '@chakra-ui/react'
+import { Grid, GridItem } from '@chakra-ui/react'
 
 function CountriesList() {
     const [cList, setCList] = useState(null)
@@ -21,13 +21,13 @@ function CountriesList() {
         )
     }else{
         return(
-            <Wrap>
+            <Grid templateColumns='repeat(3, 1fr)' gap={4}> 
                 { cList.map(item => (
-                     <WrapItem>
+                     <GridItem>
                         <CountriesListItem name={item.name.official} region={item.region} subregion={item.subregion} flags={item.flags.svg}/>
-                    </WrapItem>   
+                    </GridItem>   
                 ))}
-            </Wrap>
+            </Grid>
         )    
     }
 }
