@@ -22,7 +22,7 @@ function CountriesList() {
     }else{
         return(
             <Flex justifyContent={'center'}>
-                <Grid templateColumns={{ '2xl': 'repeat(3, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} px={{'2xl': 12, md: 8, sm: 8}} maxW={'1440px'}>
+                <Grid templateColumns={{ '2xl': 'repeat(3, 1fr)', xl: 'repeat(3, 1fr)', md: 'repeat(2, 1fr)' }} gap={4} px={{'2xl': 12, md: 8, sm: 8}} maxW={'1440px'}>
                     { cList.map(item => (
                         <GridItem>
                             <CountriesListItem name={item.name.official} region={item.region} subregion={item.subregion} flags={item.flags.svg}/>
