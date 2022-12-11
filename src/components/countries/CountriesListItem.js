@@ -11,22 +11,22 @@ import {
 
 function CountriesListItem(props) {
   return (
-    <Center py={12}>
+    <Center py={{'2xl': 4, md: 2, sm: 2}}>
         <Box
           role={'group'}
           p={6}
-          maxW={'330px'}
           w={'full'}
-          bg={useColorModeValue('white', 'gray.800')}
-          boxShadow={'2xl'}
+          bg={useColorModeValue('white', 'gray.700')}
+          boxShadow={'md'}
           rounded={'lg'}
           pos={'relative'}
-          zIndex={1}>
+          >
           <Box
-            rounded={'lg'}
-            mt={-12}
+            display='flex'
+            alignItems='center'
+            rounded={'md'}
             pos={'relative'}
-            height={'230px'}
+            height={'320px'}
             backgroundColor={'gray.100'}
             _groupHover={{
               _after: {
@@ -34,10 +34,9 @@ function CountriesListItem(props) {
               },
             }}>
             <Image
-              rounded={'lg'}
-              height={230}
-              width={282}
-              objectFit={'fill'}
+              width={'100%'}
+              height={'100%'}
+              objectFit={'contain'}
               src={props.flags}
             />
           </Box>
@@ -47,13 +46,27 @@ function CountriesListItem(props) {
                     {props.region}
                 </Text>
                 <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    •
+                    {
+                      !props.subregion ? '' : '•'
+                    }
                 </Text>
                 <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
                     {props.subregion}
                 </Text>
             </Stack>
-            <Heading fontSize={'2xl'} fontFamily={'body'} fontWeight={500} textAlign={'center'}>
+            <Heading 
+              fontSize={'2xl'} 
+              fontFamily={'body'} 
+              fontWeight={500} 
+              textAlign={'center'} 
+              overflow={'hidden'}
+              textOverflow={'ellipsis'}
+              display={'-webkit-box'}
+              sx={{ 
+                '-webkit-line-clamp': '1',
+                '-webkit-box-orient': 'vertical'
+              }}
+            >
               {props.name}
             </Heading>
           </Stack>
