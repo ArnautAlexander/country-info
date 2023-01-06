@@ -11,7 +11,7 @@ import {
 
 function CountriesListItem(props) {
   return (
-    <Center py={{'2xl': 4, md: 2, sm: 2}}>
+    <Center py={{'2xl': 4, md: 2, base: 2}}>
         <Box
           role={'group'}
           p={6}
