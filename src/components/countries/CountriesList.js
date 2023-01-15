@@ -1,11 +1,13 @@
 import React from 'react'
 import CountriesListItem from './CountriesListItem'
-import { Grid, GridItem, Flex, Skeleton } from '@chakra-ui/react'
+import { 
+    Grid, 
+    GridItem, 
+    Flex, 
+    Skeleton
+} from '@chakra-ui/react'
 
 function CountriesList({ filtCountries }) {
-
-    console.log('я лист и я рендернулся')
-    console.log(filtCountries)
     return(
         <Flex justifyContent={'center'}>
             <Grid templateColumns={{ 
@@ -16,7 +18,20 @@ function CountriesList({ filtCountries }) {
                 { filtCountries.map(item => (
                     <Skeleton isLoaded={!filtCountries ? false : true} key={item.name.official}>
                         <GridItem>
-                            <CountriesListItem name={item.name.official} region={item.region} subregion={item.subregion} flags={item.flags.svg}/>
+                            <CountriesListItem 
+                                area={item.area}
+                                capital={item.capital}
+                                coatOfArms={item.coatOfArms.svg}
+                                flags={item.flags.svg}
+                                languages={item.languages}
+                                maps={item.maps}
+                                name={item.name.official} 
+                                population={item.population}
+                                region={item.region} 
+                                subregion={item.subregion} 
+                                status={item.status}
+                                timezones={item.timezones}
+                            />
                         </GridItem>   
                     </Skeleton>
                 ))}

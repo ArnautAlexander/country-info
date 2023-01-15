@@ -7,11 +7,50 @@ import {
     Text,
     Stack,
     Image,
+    // Modal,
+    // ModalOverlay,
+    // ModalContent,
+    // ModalHeader,
+    // ModalFooter,
+    // ModalBody,
+    // ModalCloseButton, 
+    useDisclosure
+    // Button
   } from '@chakra-ui/react';
+import ModalWindow from '../modal/ModalWindow';
 
-function CountriesListItem(props) {
+function CountriesListItem({ 
+  area,
+  capital,
+  coatOfArms,
+  flags,
+  languages,
+  maps,
+  name,
+  population,
+  region,
+  status,
+  subregion,
+  timezones
+}) {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const data = {
+    area,
+    capital,
+    coatOfArms,
+    flags,
+    languages,
+    maps,
+    name,
+    population,
+    region,
+    status,
+    subregion,
+    timezones
+  }
+  
   return (
-    <Center py={{'2xl': 4, md: 2, base: 2}}>
+    <Center py={{'2xl': 4, md: 2, base: 2}} onClick={onOpen} sx={{ cursor: 'pointer' }}>
         <Box
           role={'group'}
           p={6}
@@ -37,21 +76,21 @@ function CountriesListItem(props) {
               width={'100%'}
               height={'100%'}
               objectFit={'contain'}
-              src={props.flags}
+              src={flags}
             />
           </Box>
           <Stack pt={10} align={'center'}>
             <Stack direction={'row'} align={'center'}>
                 <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    {props.region}
+                    {region}
                 </Text>
                 <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
                     {
-                      !props.subregion ? '' : '•'
+                      !subregion ? '' : '•'
                     }
                 </Text>
                 <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-                    {props.subregion}
+                    {subregion}
                 </Text>
             </Stack>
             <Heading 
@@ -67,10 +106,30 @@ function CountriesListItem(props) {
                 'WebkitBoxOrient': 'vertical'
               }}
             >
-              {props.name}
+              {name}
             </Heading>
           </Stack>
         </Box>
+
+        <ModalWindow isOpen={isOpen} onOpen={onOpen} onClose={onClose} data={data}/>
+
+        {/* <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent>
+            <ModalHeader>Modal Title</ModalHeader>
+            <ModalCloseButton />
+            <ModalBody>
+                123123
+            </ModalBody>
+
+            <ModalFooter>
+                <Button colorScheme='blue' mr={3} onClick={onClose}>
+                Close
+                </Button>
+                <Button variant='ghost'>Secondary Action</Button>
+            </ModalFooter>
+            </ModalContent>
+        </Modal> */}
       </Center>
   )
 }

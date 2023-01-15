@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Flex, Input, Select, Stack, Box } from '@chakra-ui/react'
+import { Flex, Input, Stack, Box } from '@chakra-ui/react'
 import CountriesList from '../countries/CountriesList'
 
 function Search({ allCountries }) {
