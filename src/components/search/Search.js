@@ -30,28 +30,6 @@ function Search({ allCountries }) {
         ) 
     }
 
-    const handleSort = event => {
-        console.log(event.target.value)
-        switch(event.target.value){
-            case '': 
-                console.log('я пустой')
-                break
-            case 'alph': 
-                console.log(allCountries.sort((a, b) => a.name.official.toLowerCase().localeCompare(b.name.official.toLowerCase())))
-                setFiltCountries(
-                    allCountries.sort((a, b) => a.name.official.toLowerCase().localeCompare(b.name.official.toLowerCase()))
-                )
-                break
-            case 'alphRev': 
-                setFiltCountries(
-                    allCountries.sort((a, b) => b.name.official.toLowerCase().localeCompare(a.name.official.toLowerCase()))
-                )
-                break
-            default:
-                break
-        } 
-    }
-
     return (
         <Box>
             <Flex justifyContent={'center'} py={4}>
@@ -63,16 +41,6 @@ function Search({ allCountries }) {
                         size='lg'
                         flexGrow={1}
                     />
-                    <Select 
-                        placeholder='По релевантности' 
-                        defaultValue='def'
-                        size='lg' 
-                        maxW={{'2xl': '64', xl: '64', lg: '64', md: '100%', base: '100%'}}
-                        onChange={handleSort}
-                    >
-                        <option value='alph'>По алфавиту ↓</option>
-                        <option value='alphRev'>По алфавиту ↑</option>
-                    </Select>
                 </Stack>
             </Flex>
             <CountriesList filtCountries={filtCountries}/>
