@@ -63,8 +63,8 @@ function CountriesListItem(props) {
               textOverflow={'ellipsis'}
               display={'-webkit-box'}
               sx={{ 
-                '-webkit-line-clamp': '1',
-                '-webkit-box-orient': 'vertical'
+                'WebkitLineClamp': '1',
+                'WebkitBoxOrient': 'vertical'
               }}
             >
               {props.name}
