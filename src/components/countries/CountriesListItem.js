@@ -7,15 +7,7 @@ import {
     Text,
     Stack,
     Image,
-    // Modal,
-    // ModalOverlay,
-    // ModalContent,
-    // ModalHeader,
-    // ModalFooter,
-    // ModalBody,
-    // ModalCloseButton, 
     useDisclosure
-    // Button
   } from '@chakra-ui/react';
 import ModalWindow from '../modal/ModalWindow';
 
@@ -110,26 +102,7 @@ function CountriesListItem({
             </Heading>
           </Stack>
         </Box>
-
         <ModalWindow isOpen={isOpen} onOpen={onOpen} onClose={onClose} data={data}/>
-
-        {/* <Modal isOpen={isOpen} onClose={onClose}>
-            <ModalOverlay />
-            <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-                123123
-            </ModalBody>
-
-            <ModalFooter>
-                <Button colorScheme='blue' mr={3} onClick={onClose}>
-                Close
-                </Button>
-                <Button variant='ghost'>Secondary Action</Button>
-            </ModalFooter>
-            </ModalContent>
-        </Modal> */}
       </Center>
   )
 }
